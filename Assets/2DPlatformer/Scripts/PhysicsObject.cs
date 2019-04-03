@@ -65,6 +65,8 @@ public class PhysicsObject : MonoBehaviour
     }
 
     void Movement(Vector2 move, bool yMovement)
+        //use raycasting here maybe
+        //to cast one forwards to check for changes in elevation
     {
         float distance = move.magnitude;
 

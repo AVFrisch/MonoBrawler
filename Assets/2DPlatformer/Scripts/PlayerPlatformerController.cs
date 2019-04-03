@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerPlatformerController : PhysicsObject
 {
 
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 7;
+
+    public Text dbCanvas;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -50,5 +53,8 @@ public class PlayerPlatformerController : PhysicsObject
         animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
 
         targetVelocity = move * maxSpeed;
+
+        dbCanvas.text = grounded.ToString();
+
     }
 }

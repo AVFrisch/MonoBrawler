@@ -146,6 +146,7 @@ MonoBehaviour:
   gravityModifier: 1
   maxSpeed: 7
   jumpTakeOffSpeed: 10
+  dbCanvas: {fileID: 1635771146}
 --- !u!1001 &80374143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2819,6 +2820,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0001
       objectReference: {fileID: 0}
+    - target: {fileID: 4842684439335298, guid: cefdc9cb5c29254498f8928fb68d283c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842684439335298, guid: cefdc9cb5c29254498f8928fb68d283c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.22
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114015024193619840, guid: cefdc9cb5c29254498f8928fb68d283c, type: 3}
     - {fileID: 114661711350570646, guid: cefdc9cb5c29254498f8928fb68d283c, type: 3}
@@ -2839,11 +2848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.14
+      value: 7.17
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.39
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3069,7 +3078,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Testing text
+  m_Text: Character State
 --- !u!222 &1635771147
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3087,11 +3096,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4435493812845316, guid: 0f387d2a5577afa47b4f87e4e846f091, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.1
+      value: 7.2099996
       objectReference: {fileID: 0}
     - target: {fileID: 4435493812845316, guid: 0f387d2a5577afa47b4f87e4e846f091, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.72
+      value: -2.2000003
       objectReference: {fileID: 0}
     - target: {fileID: 4435493812845316, guid: 0f387d2a5577afa47b4f87e4e846f091, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3165,7 +3174,7 @@ PrefabInstance:
     - target: {fileID: 114123390247084860, guid: 0f387d2a5577afa47b4f87e4e846f091,
         type: 3}
       propertyPath: deadzone.height
-      value: 5.15
+      value: 3.45
       objectReference: {fileID: 0}
     - target: {fileID: 114123390247084860, guid: 0f387d2a5577afa47b4f87e4e846f091,
         type: 3}
@@ -3175,7 +3184,7 @@ PrefabInstance:
     - target: {fileID: 20134372339604138, guid: 0f387d2a5577afa47b4f87e4e846f091,
         type: 3}
       propertyPath: orthographic size
-      value: 4.6875
+      value: 2.9453125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f387d2a5577afa47b4f87e4e846f091, type: 3}
