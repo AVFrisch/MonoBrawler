@@ -8,6 +8,7 @@ public class PlayerPlatformerController : PhysicsObject
 
     public float maxSpeed = 7;
     public float jumpTakeOffSpeed = 7;
+    public float health = 5;
 
     public Text dbCanvas;
 
@@ -54,7 +55,18 @@ public class PlayerPlatformerController : PhysicsObject
 
         targetVelocity = move * maxSpeed;
 
-        dbCanvas.text = grounded.ToString();
+        dbCanvas.text = grounded.ToString() + " " + health.ToString();
 
     }
-}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            other.health -= 1;
+            ComputeVelocity.velocity.y += 5;
+            print("hit");
+        }
+
+    }
+ }
