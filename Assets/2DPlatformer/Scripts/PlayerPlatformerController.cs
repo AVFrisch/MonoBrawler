@@ -59,12 +59,15 @@ public class PlayerPlatformerController : PhysicsObject
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+
+        print("OnTriggerEnter");
+
+        if (other.tag == "Enemy")
         {
-            other.health -= 1;
-            ComputeVelocity.velocity.y += 5;
+            health -= 1;
+            velocity.y += 10;
             print("hit");
         }
 
