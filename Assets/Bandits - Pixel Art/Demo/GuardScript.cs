@@ -9,25 +9,62 @@ public class GuardScript : MonoBehaviour {
     private float               inputX;
     private Animator            animator;
     private Rigidbody2D         body2d;
+    private SpriteRenderer      spriteRenderer;
     private bool                combatIdle = false;
     private bool                isGrounded = true;
+    private bool                left = false;
+    private bool                flip = false;
+    private bool direction = false;
+    private bool lastdir = false;
 
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
         body2d = GetComponent<Rigidbody2D>();
-	}
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         // -- Handle input and movement --
         inputX = Input.GetAxis("Horizontal");
 
-        // Swap direction of sprite depending on walk direction
-        if (inputX > 0)
-            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        else if (inputX < 0)
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        if (inputX < 0)
+        {
+            direction = false;
+        }
+        else if (inputX > 0)
+        {
+            direction = true;
+        }
+
+        if (direction != lastdir)
+        {
+            flip = true;
+        }
+
+        if (flip)
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            flip = false;
+        }
+
+        lastdir = direction;
+
+
+        //if (inputX < 0 && !flipped)
+        //    left = false;
+        //else if (inputX > 0 && !flipped)
+        //    left = true;
+
+        //// Swap direction of sprite depending on walk direction
+        //if (left)
+        //{
+        //    spriteRenderer.flipX = !spriteRenderer.flipX;
+        //    flipped = true;
+        //}
+        ////else if (inputX < 0)
+        ////    transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
         // Move
         body2d.velocity = new Vector2(inputX * speed, body2d.velocity.y);
@@ -73,6 +110,7 @@ public class GuardScript : MonoBehaviour {
         //Idle
         else
             animator.SetInteger("AnimState", 0);
+
     }
 
     bool IsGrounded()
