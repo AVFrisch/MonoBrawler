@@ -24,7 +24,9 @@ public class AI_Bandit : MonoBehaviour
 
         if (strikeInterval < 0)
         {
-            animator.
+            animator.SetTrigger("Attack");
+            strikeInterval = 3f;
+
         }
 
     }

@@ -52,19 +52,7 @@ public class GuardScript : MonoBehaviour {
         lastdir = direction;
 
 
-        //if (inputX < 0 && !flipped)
-        //    left = false;
-        //else if (inputX > 0 && !flipped)
-        //    left = true;
-
-        //// Swap direction of sprite depending on walk direction
-        //if (left)
-        //{
-        //    spriteRenderer.flipX = !spriteRenderer.flipX;
-        //    flipped = true;
-        //}
-        ////else if (inputX < 0)
-        ////    transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        GetComponent<Transform>().localRotation.Set(0, 0, 0, 0);
 
         // Move
         body2d.velocity = new Vector2(inputX * speed, body2d.velocity.y);
