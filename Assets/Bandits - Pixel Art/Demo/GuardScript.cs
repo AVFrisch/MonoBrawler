@@ -88,7 +88,7 @@ public class GuardScript : MonoBehaviour
         //Parry
         if (parry){
             
-            print("Parrying, parryTime = " + parryTime);
+            //print("Parrying, parryTime = " + parryTime);
             parryTime -= Time.deltaTime;
 
             if (parryTime < 0)
@@ -96,12 +96,12 @@ public class GuardScript : MonoBehaviour
                 animator.SetInteger("AnimState", 0);
                 parry = false;
                 parryTime = 1f;
-                print("~~~~~~~~~~~~~~~~~~Parry OFF");
+                //print("~~~~~~~~~~~~~~~~~~Parry OFF");
             }
             else
             {
                 animator.SetInteger("AnimState", 1);
-                print("~~~PARRY FRAME~~~");
+                //print("~~~PARRY FRAME~~~");
             }
 
         }
@@ -139,6 +139,8 @@ public class GuardScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+
         print("hit! at " + Time.fixedTime);
     }
 }
