@@ -65,6 +65,7 @@
     <Compile Include="Assets\2DPlatformer\Scripts\PhysicsObject.cs" />
     <Compile Include="Assets\2DPlatformer\Scripts\PlayerPlatformerController.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
+    <Compile Include="Assets\MB\Scripts\AI_Bandit.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/avfrisch/Documents/MonoBrawler/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
