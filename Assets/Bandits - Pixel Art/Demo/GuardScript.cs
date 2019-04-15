@@ -18,6 +18,10 @@ public class GuardScript : MonoBehaviour
     private bool direction = false;
     private bool lastdir = false;
 
+    private bool parry = false;
+
+    public float parryTime = 1f;
+
     // Use this for initialization
     void Start()
     {
@@ -78,9 +82,29 @@ public class GuardScript : MonoBehaviour
             combatIdle = !combatIdle;
         else if (Input.GetKeyDown("j"))
         {
-
+            parry = true;
         }
 
+        //Parry
+        if (parry){
+            
+            print("Parrying, parryTime = " + parryTime);
+            parryTime -= Time.deltaTime;
+
+            if (parryTime < 0)
+            {
+                animator.SetInteger("AnimState", 0);
+                parry = false;
+                parryTime = 1f;
+                print("~~~~~~~~~~~~~~~~~~Parry OFF");
+            }
+            else
+            {
+                animator.SetInteger("AnimState", 1);
+                print("~~~PARRY FRAME~~~");
+            }
+
+        }
 
 
         //Attack
