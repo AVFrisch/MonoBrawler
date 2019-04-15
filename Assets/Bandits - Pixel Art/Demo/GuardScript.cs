@@ -1,31 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GuardScript : MonoBehaviour {
+public class GuardScript : MonoBehaviour
+{
 
-    [SerializeField] float      speed = 1.0f;
-    [SerializeField] float      jumpForce = 4.0f;
+    [SerializeField] float speed = 1.0f;
+    [SerializeField] float jumpForce = 4.0f;
 
-    private float               inputX;
-    private Animator            animator;
-    private Rigidbody2D         body2d;
-    private SpriteRenderer      spriteRenderer;
-    private bool                combatIdle = false;
-    private bool                isGrounded = true;
-    private bool                left = false;
-    private bool                flip = false;
+    private float inputX;
+    private Animator animator;
+    private Rigidbody2D body2d;
+    private SpriteRenderer spriteRenderer;
+    private bool combatIdle = false;
+    private bool isGrounded = true;
+    private bool left = false;
+    private bool flip = false;
     private bool direction = false;
     private bool lastdir = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         animator = GetComponent<Animator>();
         body2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         // -- Handle input and movement --
         inputX = Input.GetAxis("Horizontal");
 
@@ -73,6 +76,10 @@ public class GuardScript : MonoBehaviour {
         //Change between idle and combat idle
         else if (Input.GetKeyDown("i"))
             combatIdle = !combatIdle;
+        else if (Input.GetKeyDown("j"))
+        {
+
+        }
 
 
 
@@ -104,5 +111,10 @@ public class GuardScript : MonoBehaviour {
     bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, -Vector3.up, 0.03f);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        print("hit! at " + Time.fixedTime);
     }
 }
