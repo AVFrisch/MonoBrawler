@@ -109,18 +109,20 @@ public class GuardScript : MonoBehaviour
         }
 
         //iFrames
-        if (inv)
-        {
-            if (iFrames < 1)
-            {
-                iFrames = 10f;
-                inv = false;
-            }
-            else
-            {
-                iFrames -= 1;
-            }
-        }
+        //if (inv)
+        //{
+        //    if (iFrames < 1)
+        //    {
+        //        iFrames = 10f;
+        //        inv = false;
+        //        print("iFrames off");
+        //    }
+        //    else
+        //    {
+        //        iFrames -= 1;
+        //        print("iFrames -, now" + iFrames.ToString());
+        //    }
+        //}
 
 
         //Attack
@@ -156,7 +158,15 @@ public class GuardScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (inv) { return; }
+        if (inv)
+        {
+
+            print("Hit during inv frame, " + iFrames.ToString() + "out of 10");
+
+
+            return;
+            
+        }
         else
         {
             if (other.CompareTag("Hitbox"))
@@ -165,7 +175,7 @@ public class GuardScript : MonoBehaviour
                 if (parry)
                 {
                     print("Parry! Health is " + health.ToString());
-                    inv = true;
+                    //inv = true;
                 }
                 else
                 {

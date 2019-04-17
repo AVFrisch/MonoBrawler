@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    public HitLight hitLight;
+    public Light hitLight;
     public GuardScript playerChar;
 
 
@@ -13,17 +13,34 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-        playerChar = GetComponent<GuardScript>();
-
+        hitLight = hitLight.GetComponent<Light>();
+        playerChar = playerChar.GetComponent<GuardScript>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (playerChar.health < 3)
+
+        if (playerChar.health == 3)
         {
-            hitLight.enabled = true;
+            hitLight.intensity = 0;
+        }
+        else if (playerChar.health == 2)
+        {
+            hitLight.intensity = 1;
+        }
+        else if (playerChar.health == 1)
+        {
+            hitLight.intensity = 2;
+        }
+        else if (playerChar.health == 0)
+        {
+            hitLight.intensity = 3;
+        }
+        else
+        {
+            hitLight.intensity = 10;
         }
 
 
