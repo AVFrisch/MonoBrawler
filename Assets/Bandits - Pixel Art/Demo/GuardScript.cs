@@ -23,7 +23,7 @@ public class GuardScript : MonoBehaviour
     public float parryTime = 1f;
 
     public float health = 3f;
-    public float iframes = 10f;
+    public float iFrames = 10f;
     private bool inv = false;
 
     // Use this for initialization
@@ -100,14 +100,26 @@ public class GuardScript : MonoBehaviour
                 animator.SetInteger("AnimState", 0);
                 parry = false;
                 parryTime = 1f;
-                //print("~~~~~~~~~~~~~~~~~~Parry OFF");
             }
             else
             {
                 animator.SetInteger("AnimState", 1);
-                //print("~~~PARRY FRAME~~~");
             }
 
+        }
+
+        //iFrames
+        if (inv)
+        {
+            if (iFrames < 1)
+            {
+                iFrames = 10f;
+                inv = false;
+            }
+            else
+            {
+                iFrames -= 1;
+            }
         }
 
 
