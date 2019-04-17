@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 361719195}
   m_Layer: 0
   m_Name: Guardbox
-  m_TagString: Untagged
+  m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 1193918148}
   m_Layer: 0
   m_Name: LightBandit
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,6 +669,8 @@ MonoBehaviour:
   speed: 2
   jumpForce: 4
   parryTime: 1
+  health: 3
+  iframes: 10
 --- !u!4 &1193918153
 Transform:
   m_ObjectHideFlags: 0
@@ -853,7 +855,7 @@ GameObject:
   - component: {fileID: 1730456383}
   m_Layer: 0
   m_Name: HeavyBandit
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1000,6 +1002,8 @@ MonoBehaviour:
   speed: 2
   jumpForce: 4
   parryTime: 1
+  health: 3
+  iframes: 10
 --- !u!4 &1730456382
 Transform:
   m_ObjectHideFlags: 0

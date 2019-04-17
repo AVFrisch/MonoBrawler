@@ -22,6 +22,10 @@ public class GuardScript : MonoBehaviour
 
     public float parryTime = 1f;
 
+    public float health = 3f;
+    public float iframes = 10f;
+    private bool inv = false;
+
     // Use this for initialization
     void Start()
     {
@@ -140,7 +144,26 @@ public class GuardScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
+        if (inv) { return; }
+        else
+        {
+            if (other.CompareTag("Hitbox"))
+            {
 
-        print("hit! at " + Time.fixedTime);
+                if (parry)
+                {
+                    print("Parry! Health is " + health.ToString());
+                    inv = true;
+                }
+                else
+                {
+                    health -= 1;
+                    print("Hit! Health is " + health.ToString());
+                    animator.SetTrigger("Hurt");
+                }
+
+            }
+        }
+
     }
 }
