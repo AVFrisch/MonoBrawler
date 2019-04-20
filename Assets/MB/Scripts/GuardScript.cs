@@ -7,13 +7,14 @@ public class GuardScript : MonoBehaviour
     [SerializeField] float speed = 1.0f;
     [SerializeField] float jumpForce = 4.0f;
 
+    public GameObject spark;
+
     private float inputX;
     private Animator animator;
     private Rigidbody2D body2d;
     private SpriteRenderer spriteRenderer;
     private bool combatIdle = false;
     private bool isGrounded = true;
-    private bool left = false;
     private bool flip = false;
     private bool direction = false;
     private bool lastdir = false;
@@ -175,6 +176,9 @@ public class GuardScript : MonoBehaviour
                 if (parry)
                 {
                     print("Parry! Health is " + health.ToString());
+                    //spawn the hit effect here
+                    Instantiate(spark, other.transform.position, other.transform.rotation);
+                    //print(other.GetContact(0));
                     //inv = true;
                 }
                 else
