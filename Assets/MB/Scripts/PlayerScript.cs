@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     private Animator animator;
     private Rigidbody2D body2d;
     private SpriteRenderer spriteRenderer;
+    public GameController gameController;
     private bool combatIdle = false;
     private bool isGrounded = true;
     private bool flip = false;
@@ -183,6 +184,7 @@ public class PlayerScript : MonoBehaviour
                     print("Parry! Health is " + health.ToString());
                     //spawn the hit effect here
                     Instantiate(spark, other.transform.position, other.transform.rotation);
+                    gameController.ParryEffect();
                     //print(other.GetContact(0));
                     //inv = true;
                 }
