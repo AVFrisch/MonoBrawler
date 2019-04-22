@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GuardScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
 
     [SerializeField] float speed = 1.0f;
@@ -26,6 +26,11 @@ public class GuardScript : MonoBehaviour
     public float health = 3f;
     public float iFrames = 10f;
     private bool inv = false;
+
+    private Color clrHP3 = new Color(255, 255, 255);
+    private Color clrHP2 = new Color(255, 128, 0);
+    private Color clrHP1 = new Color(255, 0, 0);
+    private Color clrHP0 = new Color(0, 0, 0);
 
     // Use this for initialization
     void Start()
@@ -185,6 +190,12 @@ public class GuardScript : MonoBehaviour
                 {
                     health -= 1;
                     print("Hit! Health is " + health.ToString());
+
+                    if (health == 3) { spriteRenderer.color = clrHP3; }
+                    else if (health == 2) { spriteRenderer.color = clrHP2; }
+                    else if (health == 1) { spriteRenderer.color = clrHP1; }
+                    else { spriteRenderer.color = clrHP0; }
+
                     animator.SetTrigger("Hurt");
                 }
 

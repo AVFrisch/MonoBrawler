@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
 
     public Light hitLight;
-    public GuardScript playerChar;
+    public PlayerScript playerChar;
 
 
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     {
 
         hitLight = hitLight.GetComponent<Light>();
-        playerChar = playerChar.GetComponent<GuardScript>();
+        playerChar = playerChar.GetComponent<PlayerScript>();
         
     }
 
