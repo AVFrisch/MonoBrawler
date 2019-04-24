@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     public float health = 3f;
     public float iFrames = 10f;
     public bool inv = false;
+    public bool dead = false;
 
     private Color clrHP3 = new Color(255, 255, 255);
     private Color clrHP2 = new Color(255, 128, 0);
@@ -44,6 +45,14 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (dead) {
+
+            animator.SetTrigger("Death");
+            return;
+
+        }
+
         // -- Handle input and movement --
         inputX = Input.GetAxis("Horizontal");
 
@@ -173,6 +182,12 @@ public class PlayerScript : MonoBehaviour
 
             return;
             
+        }
+        else if (dead)
+        {
+
+            return;
+
         }
         else
         {
