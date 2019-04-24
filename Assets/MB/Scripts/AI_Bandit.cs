@@ -23,6 +23,14 @@ public class AI_Bandit : MonoBehaviour
     void Update()
     {
 
+        if (health < 1)
+        {
+
+            animator.SetTrigger("Death");
+            dead = true;
+
+        }
+
         if (dead)
         {
             return;
@@ -37,14 +45,6 @@ public class AI_Bandit : MonoBehaviour
 
                 animator.SetTrigger("Attack");
                 strikeInterval = 3f;
-
-            }
-
-            if (health < 1)
-            {
-
-                animator.SetTrigger("Death");
-                dead = true;
 
             }
 
