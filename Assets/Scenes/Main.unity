@@ -1177,7 +1177,7 @@ MonoBehaviour:
   jumpForce: 4
   spark: {fileID: 7734342986632274909, guid: b7db10e7bdd85994c98dd45b70593245, type: 3}
   gameController: {fileID: 931252507}
-  parryTime: 1
+  parryTime: 0.5
   health: 3
   iFrames: 10
   inv: 0
@@ -1389,7 +1389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1457429473
 Light:
   m_ObjectHideFlags: 0
@@ -1397,11 +1397,11 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457429472}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 100
   m_SpotAngle: 30.38
   m_CookieSize: 10
