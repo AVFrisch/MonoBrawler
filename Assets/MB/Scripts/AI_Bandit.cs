@@ -9,6 +9,7 @@ public class AI_Bandit : MonoBehaviour
     public float strikeInterval = 3f;
     public float health = 3f;
     public bool inv = false;
+    public bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,29 @@ public class AI_Bandit : MonoBehaviour
     void Update()
     {
 
-        strikeInterval -= Time.deltaTime;
-
-        if (strikeInterval < 0)
+        if (dead)
+        {
+            return;
+        }
+        else
         {
 
-            animator.SetTrigger("Attack");
-            strikeInterval = 3f;
+            strikeInterval -= Time.deltaTime;
+
+            if (strikeInterval < 0)
+            {
+
+                animator.SetTrigger("Attack");
+                strikeInterval = 3f;
+
+            }
+
+            if (health < 1)
+            {
+
+                animator.SetTrigger("Death");
+
+            }
 
         }
 
@@ -44,6 +61,7 @@ public class AI_Bandit : MonoBehaviour
         {
             health -= 1;
             print("Enemy health is " + health.ToString());
+            animator.SetTrigger("Hurt");
         }
     }
 }
