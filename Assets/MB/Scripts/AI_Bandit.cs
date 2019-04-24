@@ -44,6 +44,7 @@ public class AI_Bandit : MonoBehaviour
             {
 
                 animator.SetTrigger("Death");
+                dead = true;
 
             }
 
