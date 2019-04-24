@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
 
     public float health = 3f;
     public float iFrames = 10f;
-    private bool inv = false;
+    public bool inv = false;
 
     private Color clrHP3 = new Color(255, 255, 255);
     private Color clrHP2 = new Color(255, 128, 0);

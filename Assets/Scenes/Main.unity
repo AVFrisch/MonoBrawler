@@ -369,6 +369,7 @@ MonoBehaviour:
   parryTime: 1
   health: 3
   iFrames: 10
+  inv: 0
 --- !u!4 &149110724
 Transform:
   m_ObjectHideFlags: 0
@@ -1095,6 +1096,7 @@ MonoBehaviour:
   parryTime: 1
   health: 3
   iFrames: 10
+  inv: 0
 --- !u!4 &1193918153
 Transform:
   m_ObjectHideFlags: 0
@@ -1437,7 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d420341207c63e14ea054c777600e95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strikeInterval: 3
+  strikeInterval: 2
   health: 3
 --- !u!61 &1730456377
 BoxCollider2D:
