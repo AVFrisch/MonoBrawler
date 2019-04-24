@@ -58,6 +58,7 @@ public class AI_Bandit : MonoBehaviour
         {
             print("invulnerable");
         }
+
         else if (other.CompareTag("Player"))
         {
             health -= 1;
