@@ -8,6 +8,7 @@ public class AI_Bandit : MonoBehaviour
 
     public float strikeInterval = 3f;
     public float health = 3f;
+    public bool inv = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +36,11 @@ public class AI_Bandit : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (other.CompareTag("Player"))
+        if (inv)
+        {
+            print("invulnerable");
+        }
+        else if (other.CompareTag("Player"))
         {
             health -= 1;
             print("Enemy health is " + health.ToString());
