@@ -7,6 +7,7 @@ public class AI_Bandit : MonoBehaviour
     private Animator animator;
 
     public float strikeInterval = 3f;
+    private float strikeTimer;
     public float health = 3f;
     public bool inv = false;
     public bool dead = false;
@@ -16,6 +17,7 @@ public class AI_Bandit : MonoBehaviour
     {
 
         animator = GetComponent<Animator>();
+        strikeTimer = strikeInterval;
 
     }
 
@@ -38,13 +40,13 @@ public class AI_Bandit : MonoBehaviour
         else
         {
 
-            strikeInterval -= Time.deltaTime;
+            strikeTimer -= Time.deltaTime;
 
-            if (strikeInterval < 0)
+            if (strikeTimer < 0)
             {
 
                 animator.SetTrigger("Attack");
-                strikeInterval = 3f;
+                strikeTimer = strikeInterval;
 
             }
 
