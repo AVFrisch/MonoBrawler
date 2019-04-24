@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
 
     private bool parry = false;
 
-    public float parryTime = 1f;
+    public float parryTime = 0.5f;
 
     public float health = 3f;
     public float iFrames = 10f;
@@ -91,7 +91,7 @@ public class PlayerScript : MonoBehaviour
         //Change between idle and combat idle
         else if (Input.GetKeyDown("i"))
             combatIdle = !combatIdle;
-        else if (Input.GetKeyDown("j"))
+        else if (Input.GetMouseButtonDown(1))
         {
             parry = true;
         }
@@ -106,7 +106,7 @@ public class PlayerScript : MonoBehaviour
             {
                 animator.SetInteger("AnimState", 0);
                 parry = false;
-                parryTime = 1f;
+                parryTime = 0.5f;
             }
             else
             {
