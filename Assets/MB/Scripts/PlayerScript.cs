@@ -7,7 +7,12 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float speed = 1.0f;
     [SerializeField] float jumpForce = 4.0f;
 
+    private Vector3 adjSpawnPos;
+    private Vector3 adjSpawnRot;
+
     public GameObject spark;
+    public GameObject hit1;
+    public GameObject hit2;
 
     private float inputX;
     private Animator animator;
@@ -196,9 +201,10 @@ public class PlayerScript : MonoBehaviour
 
                 if (parry)
                 {
+                    
                     print("Parry! Health is " + health.ToString());
-                    //spawn the hit effect here
-                    Instantiate(spark, other.transform.position, other.transform.rotation);
+                    adjSpawnPos = new Vector3(other.transform.position.x, other.transform.position.y + 1.5f, other.transform.position.z);
+                    Instantiate(spark, adjSpawnPos, other.transform.rotation);
                     gameController.ParryEffect();
                     //print(other.GetContact(0));
                     //inv = true;
@@ -206,6 +212,8 @@ public class PlayerScript : MonoBehaviour
                 else
                 {
                     health -= 1;
+                    adjSpawnPos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+                    Instantiate(hit1, adjSpawnPos);
                     print("Hit! Health is " + health.ToString());
 
                     if (health == 3) { spriteRenderer.color = clrHP3; }
