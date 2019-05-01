@@ -177,6 +177,7 @@ public class PlayerScript : MonoBehaviour
                     Instantiate(spark, adjSpawnPos, upwards);
                     Instantiate(parryNote, adjSpawnPos, upwards);
                     gameController.ParryEffect();
+                    parryTime = 0.25f;
                     //print(other.GetContact(0));
                     //inv = true;
                 }

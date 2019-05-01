@@ -25,6 +25,8 @@ public class Flinch : MonoBehaviour
         if (other.CompareTag("Guard"))
         {
             animator.SetTrigger("Hurt");
+            GetComponentInParent<AI_Bandit>().critTime = 1f;
+            GetComponentInParent<AI_Bandit>().strikeInterval = 1f;
         }
     }
 

@@ -1381,7 +1381,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1, y: 0.24}
-  m_Size: {x: 0.27, y: 0.16}
+  m_Size: {x: 0.39, y: 0.16}
   m_Direction: 1
 --- !u!1 &1334287761
 GameObject:
@@ -1813,15 +1813,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d420341207c63e14ea054c777600e95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strikeInterval: 1.5
-  health: 3
+  hit1: {fileID: 8510761919158801497, guid: 9ab8e1738e15f0443a72889ed13cb423, type: 3}
+  hit2: {fileID: 8510761919158801497, guid: bc1245de521166540979333d6679168c, type: 3}
+  strikeInterval: 1
+  health: 8
   follow: 1
   inv: 0
   dead: 0
+  critTime: 1.5
   speed: 1.5
-  detectRange: 12.48
-  left: 0
-  right: 0
   playerDir: {x: 0, y: 0, z: 0}
   playerPos: {fileID: 1193918153}
 --- !u!61 &1730456377
