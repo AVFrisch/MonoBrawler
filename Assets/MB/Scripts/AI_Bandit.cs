@@ -10,6 +10,7 @@ public class AI_Bandit : MonoBehaviour
     public float strikeInterval = 3f;
     private float strikeTimer;
     public float health = 3f;
+    public float follow = 1f;
     public bool inv = false;
     public bool dead = false;
 
@@ -88,7 +89,7 @@ public class AI_Bandit : MonoBehaviour
 
             playerDir = (transform.position - playerPos.position);
 
-            if (playerDir.x < 1 && playerDir.x > -1)
+            if (playerDir.x < follow && playerDir.x > -follow)
             {
 
             }
@@ -119,13 +120,13 @@ public class AI_Bandit : MonoBehaviour
     {
         if (inv)
         {
-            print("invulnerable");
+            //print("invulnerable");
         }
 
-        else if (other.CompareTag("Player"))
+        else if (other.CompareTag("Hitbox"))
         {
             health -= 1;
-            print("Enemy health is " + health.ToString());
+            //print("Enemy health is " + health.ToString());
             animator.SetTrigger("Hurt");
         }
     }

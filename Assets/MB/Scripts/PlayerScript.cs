@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     private Quaternion adjSpawnRot;
 
     public GameObject spark;
+    public GameObject parryNote;
     public GameObject hit1;
     public GameObject hit2;
 
@@ -61,27 +62,36 @@ public class PlayerScript : MonoBehaviour
         // -- Handle input and movement --
         inputX = Input.GetAxis("Horizontal");
 
-        if (inputX < 0)
-        {
-            direction = false;
-        }
-        else if (inputX > 0)
-        {
-            direction = true;
-        }
+        //if (inputX < 0)
+        //{
+        //    direction = false;
+        //}
+        //else if (inputX > 0)
+        //{
+        //    direction = true;
+        //}
 
-        if (direction != lastdir)
-        {
-            flip = true;
-        }
+        //if (direction != lastdir)
+        //{
+        //    flip = true;
+        //}
 
-        if (flip)
-        {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-            flip = false;
-        }
+        //if (flip)
+        //{
+        //    spriteRenderer.flipX = !spriteRenderer.flipX;
+        //    flip = false;
+        //}
 
-        lastdir = direction;
+        //lastdir = direction;
+
+        if (inputX > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (inputX < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 
 
         //GetComponent<Transform>().localRotation.Set(0, 0, 0, 0);
@@ -202,9 +212,11 @@ public class PlayerScript : MonoBehaviour
                 if (parry)
                 {
                     
-                    print("Parry! Health is " + health.ToString());
+                    //print("Parry! Health is " + health.ToString());
                     adjSpawnPos = new Vector3(other.transform.position.x, other.transform.position.y + 1.5f, other.transform.position.z);
-                    Instantiate(spark, adjSpawnPos, other.transform.rotation);
+                    Quaternion upwards = Quaternion.LookRotation(Vector3.up);
+                    Instantiate(spark, adjSpawnPos, upwards);
+                    Instantiate(parryNote, adjSpawnPos, upwards);
                     gameController.ParryEffect();
                     //print(other.GetContact(0));
                     //inv = true;
