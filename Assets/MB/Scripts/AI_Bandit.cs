@@ -17,7 +17,7 @@ public class AI_Bandit : MonoBehaviour
     public bool inv = false;
     public bool dead = false;
     public float critTime = 1.5f;
-
+    public float corpseTime = 5f;
     public float speed = 1.5f;
     public Vector3 playerDir;
     public Transform playerPos;
@@ -37,18 +37,16 @@ public class AI_Bandit : MonoBehaviour
     void Update()
     {
 
-        if (health < 1)
-        {
-
-            animator.SetTrigger("Death");
-            dead = true;
-
-        }
-
         if (dead)
         {
+            corpseTime -= Time.deltaTime;
+            if(corpseTime < 0)
+            {
+                Destroy(gameObject);
+            }
             return;
         }
+
         else
         {
 
@@ -88,9 +86,9 @@ public class AI_Bandit : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (inv)
+        if (inv || dead)
         {
-            
+            return;
         }
 
         else if (other.CompareTag("Hitbox"))
@@ -98,7 +96,7 @@ public class AI_Bandit : MonoBehaviour
             if (critTime > 0)
             {
                 health -= 2;
-                print("double!");
+                //Sprint("double!");
                 Vector3 adjSpawnPos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
                 Quaternion upwards = Quaternion.LookRotation(Vector3.up);
                 Instantiate(hit2, adjSpawnPos, upwards);
@@ -113,6 +111,16 @@ public class AI_Bandit : MonoBehaviour
             //print("Enemy health is " + health.ToString());
             animator.SetTrigger("Hurt");
             healthBar.UpdateBar(health, 8);
+
+            if (health < 1)
+            {
+
+                animator.SetTrigger("Death");
+                dead = true;
+                GetComponentInChildren<SimpleHealthBar>().enabled = false;
+
+            }
+
             //strikeTimer = strikeInterval;
         }
 

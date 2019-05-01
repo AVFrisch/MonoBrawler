@@ -78,24 +78,12 @@ public class PlayerScript : MonoBehaviour
         isGrounded = IsGrounded();
         animator.SetBool("Grounded", isGrounded);
 
-        //Death
-        if (Input.GetKeyDown("k"))
-            animator.SetTrigger("Death");
-        //Hurt
-        else if (Input.GetKeyDown("h"))
-            animator.SetTrigger("Hurt");
-        //Recover
-        else if (Input.GetKeyDown("r"))
-            animator.SetTrigger("Recover");
-        //Change between idle and combat idle
-        else if (Input.GetKeyDown("i"))
-            combatIdle = !combatIdle;
-        else if (Input.GetMouseButtonDown(1))
+        //Parry
+        if (Input.GetMouseButtonDown(1))
         {
             parry = true;
         }
 
-        //Parry
         if (parry){
             
             //print("Parrying, parryTime = " + parryTime);
