@@ -14,7 +14,7 @@ public class AI_Bandit : MonoBehaviour
     public bool inv = false;
     public bool dead = false;
 
-    public float speed = 1;
+    public float speed = 1.5f;
     public float detectRange = 2f;
     public bool left = false;
     public bool right = false;
@@ -51,66 +51,33 @@ public class AI_Bandit : MonoBehaviour
         else
         {
 
-            //RaycastHit2D lookR = Physics2D.Raycast(playerDetect.position + detectAdjust, playerDetect.position + Vector3.right, detectRange);
-            //RaycastHit2D lookL = Physics2D.Raycast(playerDetect.position + detectAdjust, playerDetect.position + Vector3.left, detectRange);
-
-            //Debug.DrawLine(playerDetect.position, playerDetect.position + Vector3.left);
-
-            //print(lookL.collider);
-
-            //if (lookL.collider == false) { left = false; }
-            //else { left = true; }
-
-            //if (lookR.collider == false) { right = false; }
-            //else { right = true; }
-
-            //if (left){
-            //    //print("Left " + lookL.collider.name);
-            //    if (lookL.collider.name == "Player")
-            //    {
-            //        body2d.velocity = new Vector2(-speed, body2d.velocity.y);
-            //    }
-            //}
-            //else if (right)
-            //{
-            //    print("Right " + lookR.collider.tag);
-            //    if (lookR.collider.tag == "Player")
-            //    {
-            //        body2d.velocity = new Vector2(speed, body2d.velocity.y);
-            //    }
-            //}
-
-
-            //body2d.velocity = Vector2.MoveTowards(playerPos.position, transform.position, speed);
-            //Debug.DrawLine(transform.position, playerPos.position);
-            //print();
-
-            
-
             playerDir = (transform.position - playerPos.position);
 
             if (playerDir.x < follow && playerDir.x > -follow)
             {
+                animator.SetInteger("AnimState", 0);
+                if (strikeTimer < 0)
+                {
 
+                    animator.SetTrigger("Attack");
+                    strikeTimer = strikeInterval;
+
+                }
             }
             else if (playerDir.x > 0)
             {
+                animator.SetInteger("AnimState", 2);
                 body2d.velocity = new Vector2(-speed, body2d.velocity.y);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             else if (playerDir.x < 0)
             {
+                animator.SetInteger("AnimState", 2);
                 body2d.velocity = new Vector2(speed, body2d.velocity.y);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
 
             strikeTimer -= Time.deltaTime;
-
-            if (strikeTimer < 0)
-            {
-
-                animator.SetTrigger("Attack");
-                strikeTimer = strikeInterval;
-
-            }
 
         }
 
@@ -120,7 +87,7 @@ public class AI_Bandit : MonoBehaviour
     {
         if (inv)
         {
-            //print("invulnerable");
+            
         }
 
         else if (other.CompareTag("Hitbox"))
@@ -129,5 +96,6 @@ public class AI_Bandit : MonoBehaviour
             //print("Enemy health is " + health.ToString());
             animator.SetTrigger("Hurt");
         }
+
     }
 }

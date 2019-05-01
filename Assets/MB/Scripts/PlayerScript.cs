@@ -22,9 +22,6 @@ public class PlayerScript : MonoBehaviour
     public GameController gameController;
     private bool combatIdle = false;
     private bool isGrounded = true;
-    private bool flip = false;
-    private bool direction = false;
-    private bool lastdir = false;
 
     private bool parry = false;
 
@@ -61,28 +58,6 @@ public class PlayerScript : MonoBehaviour
 
         // -- Handle input and movement --
         inputX = Input.GetAxis("Horizontal");
-
-        //if (inputX < 0)
-        //{
-        //    direction = false;
-        //}
-        //else if (inputX > 0)
-        //{
-        //    direction = true;
-        //}
-
-        //if (direction != lastdir)
-        //{
-        //    flip = true;
-        //}
-
-        //if (flip)
-        //{
-        //    spriteRenderer.flipX = !spriteRenderer.flipX;
-        //    flip = false;
-        //}
-
-        //lastdir = direction;
 
         if (inputX > 0)
         {
@@ -139,22 +114,6 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        //iFrames
-        //if (inv)
-        //{
-        //    if (iFrames < 1)
-        //    {
-        //        iFrames = 10f;
-        //        inv = false;
-        //        print("iFrames off");
-        //    }
-        //    else
-        //    {
-        //        iFrames -= 1;
-        //        print("iFrames -, now" + iFrames.ToString());
-        //    }
-        //}
-
 
         //Attack
         else if (Input.GetMouseButtonDown(0))
@@ -192,7 +151,7 @@ public class PlayerScript : MonoBehaviour
         if (inv)
         {
 
-            print("Hit during inv frame, " + iFrames.ToString() + "out of 10");
+            //print("Hit during inv frame, " + iFrames.ToString() + "out of 10");
 
 
             return;
@@ -227,12 +186,15 @@ public class PlayerScript : MonoBehaviour
                     adjSpawnPos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
                     Quaternion upwards = Quaternion.LookRotation(Vector3.up);
                     Instantiate(hit1, adjSpawnPos, upwards);
-                    print("Hit! Health is " + health.ToString());
+                    //print("Hit! Health is " + health.ToString());
 
                     if (health == 3) { spriteRenderer.color = clrHP3; }
                     else if (health == 2) { spriteRenderer.color = clrHP2; }
                     else if (health == 1) { spriteRenderer.color = clrHP1; }
-                    else { spriteRenderer.color = clrHP0; }
+                    else {
+                        dead = true;
+                        spriteRenderer.color = clrHP0;
+                    }
 
                     animator.SetTrigger("Hurt");
                 }
