@@ -5,6 +5,7 @@ using UnityEngine;
 public class AI_Bandit : MonoBehaviour
 {
     private Animator animator;
+    private Rigidbody2D body2d;
 
     public float strikeInterval = 3f;
     private float strikeTimer;
@@ -12,12 +13,22 @@ public class AI_Bandit : MonoBehaviour
     public bool inv = false;
     public bool dead = false;
 
+    public float speed = 1;
+    public float detectRange = 2f;
+    public bool left = false;
+    public bool right = false;
+    public Vector3 detectAdjust = new Vector3(0, 0.5f, 0);
+    public Transform playerDetect;
+    public Transform playerPos;
+
     // Start is called before the first frame update
     void Start()
     {
 
         animator = GetComponent<Animator>();
+        body2d = GetComponent<Rigidbody2D>();
         strikeTimer = strikeInterval;
+
 
     }
 
@@ -39,6 +50,40 @@ public class AI_Bandit : MonoBehaviour
         }
         else
         {
+
+            //RaycastHit2D lookR = Physics2D.Raycast(playerDetect.position + detectAdjust, playerDetect.position + Vector3.right, detectRange);
+            //RaycastHit2D lookL = Physics2D.Raycast(playerDetect.position + detectAdjust, playerDetect.position + Vector3.left, detectRange);
+
+            //Debug.DrawLine(playerDetect.position, playerDetect.position + Vector3.left);
+
+            //print(lookL.collider);
+
+            //if (lookL.collider == false) { left = false; }
+            //else { left = true; }
+
+            //if (lookR.collider == false) { right = false; }
+            //else { right = true; }
+
+            //if (left){
+            //    //print("Left " + lookL.collider.name);
+            //    if (lookL.collider.name == "Player")
+            //    {
+            //        body2d.velocity = new Vector2(-speed, body2d.velocity.y);
+            //    }
+            //}
+            //else if (right)
+            //{
+            //    print("Right " + lookR.collider.tag);
+            //    if (lookR.collider.tag == "Player")
+            //    {
+            //        body2d.velocity = new Vector2(speed, body2d.velocity.y);
+            //    }
+            //}
+
+
+            body2d.velocity = Vector2.MoveTowards(playerPos.position, transform.position, speed);
+            Debug.DrawLine(transform.position, playerPos.position);
+            //print();
 
             strikeTimer -= Time.deltaTime;
 

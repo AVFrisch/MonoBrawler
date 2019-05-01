@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float jumpForce = 4.0f;
 
     private Vector3 adjSpawnPos;
-    private Vector3 adjSpawnRot;
+    private Quaternion adjSpawnRot;
 
     public GameObject spark;
     public GameObject hit1;
@@ -84,7 +84,7 @@ public class PlayerScript : MonoBehaviour
         lastdir = direction;
 
 
-        GetComponent<Transform>().localRotation.Set(0, 0, 0, 0);
+        //GetComponent<Transform>().localRotation.Set(0, 0, 0, 0);
 
         // Move
         body2d.velocity = new Vector2(inputX * speed, body2d.velocity.y);
@@ -213,7 +213,8 @@ public class PlayerScript : MonoBehaviour
                 {
                     health -= 1;
                     adjSpawnPos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
-                    Instantiate(hit1, adjSpawnPos);
+                    Quaternion upwards = Quaternion.LookRotation(Vector3.up);
+                    Instantiate(hit1, adjSpawnPos, upwards);
                     print("Hit! Health is " + health.ToString());
 
                     if (health == 3) { spriteRenderer.color = clrHP3; }

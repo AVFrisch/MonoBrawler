@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8510761919158801496}
   - component: {fileID: 3221736493822366792}
   m_Layer: 0
-  m_Name: -1
+  m_Name: -2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4655,8 +4655,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a3b8a855e678ef48a16c9515cdc5340, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 235b7213607689a4d8b63157a824d87c, type: 2}
+  - {fileID: 2100000, guid: 235b7213607689a4d8b63157a824d87c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
