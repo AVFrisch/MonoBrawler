@@ -979,6 +979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitLight: {fileID: 1457429473}
   playerChar: {fileID: 1193918152}
+  GameOver: 0
 --- !u!4 &931252508
 Transform:
   m_ObjectHideFlags: 0
@@ -2262,6 +2263,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 115054651125668231, guid: e0c5e1a1b53204b4c8b1be7603b84d4a,
+        type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 931252507}
     - target: {fileID: 115054651125668231, guid: e0c5e1a1b53204b4c8b1be7603b84d4a,
         type: 3}
       propertyPath: playerPos

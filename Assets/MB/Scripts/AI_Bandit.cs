@@ -9,6 +9,7 @@ public class AI_Bandit : MonoBehaviour
     public GameObject hit1;
     public GameObject hit2;
     public SimpleHealthBar healthBar;
+    public GameController gameController;
 
     public float strikeInterval = 3f;
     private float strikeTimer;
@@ -118,6 +119,7 @@ public class AI_Bandit : MonoBehaviour
                 animator.SetTrigger("Death");
                 dead = true;
                 GetComponentInChildren<SimpleHealthBar>().enabled = false;
+                gameController.GameOver = true;
 
             }
 

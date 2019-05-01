@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameController : MonoBehaviour
     public Light hitLight;
     public PlayerScript playerChar;
     private Animator lightAnimator;
+    public bool GameOver = false;
 
 
     // Start is called before the first frame update
@@ -24,26 +26,21 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
-        //if (playerChar.health == 3)
-        //{
-        //    hitLight.intensity = 0;
-        //}
-        //else if (playerChar.health == 2)
-        //{
-        //    hitLight.intensity = 1;
-        //}
-        //else if (playerChar.health == 1)
-        //{
-        //    hitLight.intensity = 2;
-        //}
-        //else if (playerChar.health == 0)
-        //{
-        //    hitLight.intensity = 3;
-        //}
-        //else
-        //{
-        //    hitLight.intensity = 10;
-        //}
+        if (Input.GetAxis("Cancel") != 0)
+        {
+
+            print("bye");
+            Application.Quit();
+            
+        }
+
+        if (Input.GetAxis("Submit")!= 0 && GameOver)
+        {
+
+            print("Restarting...");
+            SceneManager.LoadScene("Main");
+
+        }
 
 
     }

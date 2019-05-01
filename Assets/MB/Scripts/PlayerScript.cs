@@ -182,6 +182,7 @@ public class PlayerScript : MonoBehaviour
                     else if (health == 1) { spriteRenderer.color = clrHP1; }
                     else {
                         dead = true;
+                        gameController.GameOver = true;
                         spriteRenderer.color = clrHP0;
                     }
 
