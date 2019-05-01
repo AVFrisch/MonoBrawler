@@ -17,8 +17,7 @@ public class AI_Bandit : MonoBehaviour
     public float detectRange = 2f;
     public bool left = false;
     public bool right = false;
-    public Vector3 detectAdjust = new Vector3(0, 0.5f, 0);
-    public Transform playerDetect;
+    public Vector3 playerDir;
     public Transform playerPos;
 
     // Start is called before the first frame update
@@ -81,9 +80,26 @@ public class AI_Bandit : MonoBehaviour
             //}
 
 
-            body2d.velocity = Vector2.MoveTowards(playerPos.position, transform.position, speed);
-            Debug.DrawLine(transform.position, playerPos.position);
+            //body2d.velocity = Vector2.MoveTowards(playerPos.position, transform.position, speed);
+            //Debug.DrawLine(transform.position, playerPos.position);
             //print();
+
+            
+
+            playerDir = (transform.position - playerPos.position);
+
+            if (playerDir.x < 1 && playerDir.x > -1)
+            {
+
+            }
+            else if (playerDir.x > 0)
+            {
+                body2d.velocity = new Vector2(-speed, body2d.velocity.y);
+            }
+            else if (playerDir.x < 0)
+            {
+                body2d.velocity = new Vector2(speed, body2d.velocity.y);
+            }
 
             strikeTimer -= Time.deltaTime;
 

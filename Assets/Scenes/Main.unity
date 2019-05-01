@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  jumpForce: 4
+  jumpForce: 6
   spark: {fileID: 7734342986632274909, guid: b7db10e7bdd85994c98dd45b70593245, type: 3}
   hit1: {fileID: 8510761919158801497, guid: 9ab8e1738e15f0443a72889ed13cb423, type: 3}
   hit2: {fileID: 8510761919158801497, guid: bc1245de521166540979333d6679168c, type: 3}
@@ -1265,7 +1265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193918147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.63, y: -3.65, z: -1}
+  m_LocalPosition: {x: -2.5, y: -3, z: -1}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 361719194}
@@ -1603,6 +1603,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1477946463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1477946464}
+  m_Layer: 0
+  m_Name: Detection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1477946464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477946463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.094, y: 0.153, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1730456382}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602110797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,11 +1724,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1730456382}
+  - component: {fileID: 1730456376}
   - component: {fileID: 1730456380}
   - component: {fileID: 1730456379}
   - component: {fileID: 1730456378}
   - component: {fileID: 1730456377}
-  - component: {fileID: 1730456376}
   - component: {fileID: 1730456383}
   m_Layer: 0
   m_Name: Enemy
@@ -1723,6 +1753,12 @@ MonoBehaviour:
   health: 3
   inv: 0
   dead: 0
+  speed: 1
+  detectRange: 12.48
+  left: 0
+  right: 0
+  playerDir: {x: 0, y: 0, z: 0}
+  playerPos: {fileID: 1193918153}
 --- !u!61 &1730456377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1845,9 +1881,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730456375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.105, y: -3.582, z: -1}
+  m_LocalPosition: {x: 2.5, y: -3, z: -1}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_Children: []
+  m_Children:
+  - {fileID: 1477946464}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
