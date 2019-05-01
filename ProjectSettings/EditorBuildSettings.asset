@@ -6,10 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Lessons/Lesson2/lesson2.unity
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Lessons/Lesson3/lesson3.unity
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Lessons/Lesson4/lesson4.unity
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Lessons/Complete/complete.unity
+    path: Assets/Scenes/Main.unity
+    guid: 1b5a8f52c8f8ec747a0da84db42e82f2
+  m_configObjects: {}

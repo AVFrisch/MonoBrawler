@@ -8,6 +8,7 @@ public class AI_Bandit : MonoBehaviour
     private Rigidbody2D body2d;
     public GameObject hit1;
     public GameObject hit2;
+    public SimpleHealthBar healthBar;
 
     public float strikeInterval = 3f;
     private float strikeTimer;
@@ -111,6 +112,7 @@ public class AI_Bandit : MonoBehaviour
             }
             //print("Enemy health is " + health.ToString());
             animator.SetTrigger("Hurt");
+            healthBar.UpdateBar(health, 8);
             //strikeTimer = strikeInterval;
         }
 
